@@ -1,21 +1,45 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int	main(int argc, char* argv[])
+void	free_str(char **str)
 {
-	char** 	str;
-	int		i;
+	int	i;
 
-	i = 1;
-	str = ft_calloc(argc - 1, sizeof(char *));
-	while(argv[i])
+	i = 0;
+	while (str[i])
+		free(str[i++]);
+	free(str);
+}
+
+int	main(int argc, char *argv[])
+{
+	char	**A;
+	char	**B;
+	int		i;
+	int		j;
+
+	i = 0;
+	A = ft_calloc(argc, sizeof(char *));
+	B = ft_calloc(argc, sizeof(char *));
+	while (argv[++i])
 	{
-		str[i - 1] = ft_calloc(ft_strlen(*argv), sizeof(char));
-		str[i - 1] = argv[i];
-		//str[i] = ft_atoi(*argv);
-		printf("%s\n", str[i - 1]);
-		free(str[i - 1]);
+		A[i - 1] = ft_calloc(ft_strlen(argv[i]) + 1, sizeof(char));
+		B[i - 1] = ft_calloc(ft_strlen(argv[i]) + 1, sizeof(char));
+		j = 0;
+		while (argv[i][j] != '\0')
+		{
+			A[i - 1][j] = argv[i][j];
+			j++;
+		}
+		printf("%d  %s  %p\n", i - 1, A[i - 1], A[i - 1]);
+	}
+	//process_ss(A, NULL);
+	process_rrr(A, NULL, argc - 1);
+	i = 0;
+	while (A[i])
+	{
+		printf("%d  %s  %p\n", i, A[i], A[i]);
 		i++;
 	}
-	free(str);
+	free_str(A);
 }

@@ -1,8 +1,8 @@
 NAME = push_swap
 LIBFT = libft/libft.a
-CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS =  -Wall -Werror -Wextra -I.
 ARFLAGS = rcs
-SRC = push_swap.c
+SRC = push_swap.c processes.c
 
 OBJ = $(SRC:c=o)
 
