@@ -6,7 +6,7 @@
 #    By: telee <telee@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/04 14:50:07 by telee             #+#    #+#              #
-#    Updated: 2021/07/31 22:16:33 by telee            ###   ########.fr        #
+#    Updated: 2021/08/01 23:26:26 by telee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC			= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
 		  		ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c\
 		  		ft_substr.c ft_tolower.c ft_toupper.c\
 				ft_putchar.c ft_putstr.c ft_putnbr.c ft_decToHexa.c ft_itoa_long.c\
-				ft_decToHexaBig.c ft_abs.c ft_strncpy.c ft_atoi_sizet.c ft_strstrlen.c
+				ft_decToHexaBig.c ft_abs.c ft_strncpy.c ft_atoi_sizet.c ft_strstrlen.c\
+				ft_intlen.c
 
 BONUS		= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
 			  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c

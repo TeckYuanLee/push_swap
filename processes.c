@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void	process_ss(char **a, char **b)
+void	process_ss(int *a, int *b)
 {
-	char	*temp;
+	int	temp;
 
 	if (a)
 	{
@@ -24,10 +24,10 @@ void	process_ss(char **a, char **b)
 		ft_putstr("sb\n");
 }
 
-void	process_rr(char **a, char **b, int n)
+void	process_rr(int *a, int *b, int n)
 {
-	char	*temp;
-	int		i;
+	int	temp;
+	int	i;
 
 	if (a)
 	{
@@ -59,10 +59,10 @@ void	process_rr(char **a, char **b, int n)
 		ft_putstr("rb\n");
 }
 
-void	process_rrr(char **a, char **b, int n)
+void	process_rrr(int *a, int *b, int n)
 {
-	char	*temp;
-	int		i;
+	int	temp;
+	int	i;
 
 	if (a)
 	{
@@ -94,24 +94,52 @@ void	process_rrr(char **a, char **b, int n)
 		ft_putstr("rrb\n");
 }
 
-void	process_papb(char **a, char **b)
+void	process_pa(int *a, int *b)
 {
-	char	*temp;
-	int		i;
-	int		n;
+	int	temp;
+	int	i;
+	int	n;
 
-	if (a)
+	i = 0;
+	n = ft_intlen(b);
+	temp = b[i];
+	while (i < n - 1)
 	{
-		i = 0;
-		n = ft_strstrlen(b);
-		temp = b[i];
-		while (i < n - 1)
-		{
-			b[i] = b[i + 1];
-			i++;
-		}
-		b[i] = 0;
-		i = ft_strtrlen(a) - 1;
-		while (i >= 0)
-		{
-			a[i + 1] = a[i];
+		b[i] = b[i + 1];
+		i++;
+	}
+	b[i] = '\0';
+	i = ft_intlen(a) - 1;
+	while (i >= 0)
+	{
+		a[i + 1] = a[i];
+		i--;
+	}
+	a[0] = temp;
+	ft_putstr("pa\n");
+}
+
+void	process_pb(int *a, int *b)
+{
+	int	temp;
+	int	i;
+	int	n;
+
+	i = 0;
+	n = ft_intlen(a);
+	temp = a[i];
+	while (i < n - 1)
+	{
+		a[i] = a[i + 1];
+		i++;
+	}
+	a[i] = '\0';
+	i = ft_intlen(b) - 1;
+	while (i >= 0)
+	{
+		b[i + 1] = b[i];
+		i--;
+	}
+	b[0] = temp;
+	ft_putstr("pb\n");
+}
