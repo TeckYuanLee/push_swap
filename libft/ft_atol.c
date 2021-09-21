@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_sizet.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: telee <telee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:01:58 by telee             #+#    #+#             */
-/*   Updated: 2021/06/27 10:14:48 by telee            ###   ########.fr       */
+/*   Updated: 2021/05/18 17:05:27 by telee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../push_swap.h"
 
-size_t	ft_atoi_sizet(const char *str)
+long	ft_atol(const char *str)
 {
 	int		a;
-	size_t	integer;
+	long	integer;
 	long	sign;
 
 	a = 0;
@@ -24,11 +25,10 @@ size_t	ft_atoi_sizet(const char *str)
 	while (str[a] && (str[a] == 32 || (str[a] > 8 && str[a] < 14)))
 		a++;
 	if (str[a] == '-' || str[a] == '+')
-	{	
-		if (str[a] == '-')
+		if (str[a++] == '-')
 			sign *= -1;
-		a++;
-	}
+	if (str[a] < 48 || str[a] > 57)
+		checkstring();
 	while (str[a] && str[a] > 47 && str[a] < 58)
 	{
 		if (((integer * 10) / 10 != integer) && sign == -1)

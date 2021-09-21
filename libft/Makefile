@@ -13,7 +13,7 @@
 NAME		= libft.a
 headers		= libft.h
 CFLAGS		= -Wall -Werror -Wextra -I.
-SRC			= ft_atoi.c ft_bzero.c ft_bintmax.c ft_calloc.c ft_putchar.c ft_putstr.c ft_intlen.c
+SRC			= ft_atol.c ft_bzero.c ft_calloc.c ft_putchar.c ft_putstr.c ft_intlen.c
 
 OBJ			= $(SRC:.c=.o)
 

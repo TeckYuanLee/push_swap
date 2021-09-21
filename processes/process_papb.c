@@ -15,7 +15,7 @@ void	process_pa(long *a, long *b)
 		i++;
 	}
 	b[i] = 2147483648;
-	i = ft_intlen(a);// - 1
+	i = ft_intlen(a);
 	while (i >= 0)
 	{
 		a[i] = a[i - 1];
@@ -40,7 +40,7 @@ void	process_pb(long *a, long *b)
 		i++;
 	}
 	a[i] = 2147483648;
-	i = ft_intlen(b);// - 1;
+	i = ft_intlen(b);
 	while (i >= 0)
 	{
 		b[i] = b[i - 1];
