@@ -12,13 +12,16 @@
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+long	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
+	long	*ptr;
+	size_t	i;
 
+	i = 0;
 	ptr = malloc(size * count);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, size * count);
+	while (i < count)
+		ptr[i++] = 2147483648;
 	return (ptr);
 }

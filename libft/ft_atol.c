@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "../push_swap.h"
 
-long	ft_atol(const char *str)
+long	ft_atol(const char *str, t_stack stack)
 {
 	int		a;
 	long	integer;
@@ -28,7 +28,7 @@ long	ft_atol(const char *str)
 		if (str[a++] == '-')
 			sign *= -1;
 	if (str[a] < 48 || str[a] > 57)
-		checkstring();
+		checkstring(stack);
 	while (str[a] && str[a] > 47 && str[a] < 58)
 	{
 		if (((integer * 10) / 10 != integer) && sign == -1)

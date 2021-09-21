@@ -2,7 +2,7 @@ NAME = push_swap
 LIBFT = libft/libft.a
 CFLAGS = -Wall -Werror -Wextra -I.
 ARFLAGS = rcs
-SRC = main.c processes/process_ss.c processes/process_rr.c processes/process_rrr.c processes/process_papb.c comparealgo.c printAB.c threerandnum.c checkerror.c
+SRC = main.c processes/process_ss.c processes/process_rr.c processes/process_rrr.c processes/process_papb.c quick_sort_helper.c printAB.c threerandnum.c checkerror.c
 
 OBJ = $(SRC:c=o)
 

@@ -6,24 +6,45 @@ void	freestack(t_stack stack)
 	free(stack.B);
 }
 
-void	exitandfree(t_stack stack)
+void	checkintrange(t_stack stack, long i)
 {
-	freestack(stack);
-	ft_putstr("out of INT range.\n");
-	exit(0);
+	if (stack.A[i - 1] < -2147483648 || stack.A[i - 1] > 2147483647)
+	{
+		ft_putstr("Error : out of INT range.\n");
+		freestack(stack);
+		exit(0);
+	}
 }
 
 void	checkargc(int argc)
 {
 	if (argc < 2)
 	{
-		ft_putstr("not enough arguments.\n");
+		ft_putstr("Error : not enough arguments.\n");
 		exit(0);
 	}
 }
 
-void	checkstring(void)
+void	checkstring(t_stack stack)
 {
-	ft_putstr("string.\n");
+	ft_putstr("Error : string detected.\n");
+	freestack(stack);
 	exit(0);
+}
+
+void	checkduplicates(t_stack stack, long a, long j)
+{
+	long	i;
+
+	i = 0;
+	while (i < j)
+	{
+		if (stack.A[i] == a)
+		{
+			ft_putstr("Error : duplicate!\n");
+			freestack(stack);
+			exit(0);
+		}
+		i++;
+	}
 }
