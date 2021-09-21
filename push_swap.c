@@ -1,38 +1,50 @@
 #include <stdio.h>
+#include <limits.h>
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	int	*A;
-	int	*B;
-	int	i;
-	//int	j;
+	long	*A;
+	long	*B;
+	long	i;
 
 	i = 0;
-	A = ft_calloc(argc, sizeof(int));
-	B = ft_calloc(argc, sizeof(int));
+	A = ft_calloc(argc, sizeof(long));
+	B = ft_calloc(argc, sizeof(long));
 	while (argv[++i])
-	{
 		A[i - 1] = ft_atoi(argv[i]);
-		//printf("%d\n", A[i - 1]);
-	}
-	//process_ss(A, NULL);
-	//process_rrr(A, NULL, argc - 1);
-	process_pb(A, B);
-	process_pb(A, B);
-	process_pb(A, B);
-	i = 0;
-	while (A[i])
+	A[argc - 1] = 2147483648;
+	B[argc - 1] = 2147483648;
+	//printf("%ld\n", A[argc - 1]);
+	if (argc == 4)
+		threerandnum(A);
+	if (argc == 6)
+		fiverandnum(A, B);
+	if ((int)ft_intlen(A) == 5 && checksorted(A))
+		printf("ok\n");
+	if (argc == 21)
 	{
-		printf("A %d\n", A[i]);
-		i++;
+		recursivealgo(A, B);
+		fiverandnum(A, B);
+		i = 0;
+		while (i < 15)
+		{
+			process_pa(A, B);
+			i++;
+		}
 	}
-	i = 0;
-	while (B[i])
-	{
-		printf("B %d\n", B[i]);
-		i++;
-	}
+	//i = 0;
+	//while (A[i] != 2147483648)
+	//{
+	//	printf("A %ld\n", A[i]);
+	//	i++;
+	//}
+	//i = 0;
+	//while (B[i] != 2147483648)
+	//{
+	//	printf("B %ld\n", B[i]);
+	//	i++;
+	//}
 	free(A);
 	free(B);
 }
