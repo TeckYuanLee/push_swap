@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "./ps_program/push_swap.h"
 #include <stdio.h>
 
 void	printAB(long *A, long *B)

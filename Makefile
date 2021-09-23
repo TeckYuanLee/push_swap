@@ -1,18 +1,27 @@
-NAME = push_swap
+PUSH_SWAP = push_swap
+CHECKER = checker
 LIBFT = libft/libft.a
 CFLAGS = -Wall -Werror -Wextra -I.
 ARFLAGS = rcs
-SRC = main.c processes/process_ss.c processes/process_rr.c processes/process_rrr.c processes/process_papb.c quick_sort_helper.c printAB.c threerandnum.c checkerror.c
+
+SRC = ps_program/*.c printAB.c processes/*.c\
+
+SRC1 = ps_checker/checker.c ps_program/checkerror.c processes/*.c\
 
 OBJ = $(SRC:c=o)
+OBJ1 = $(SRC1:c=o)
 
-all: $(NAME)
+all: $(PUSH_SWAP) $(CHECKER)
 
-$(NAME):	$(OBJ) 
+$(PUSH_SWAP):	$(OBJ) 
 		@$(MAKE) all -C ./libft
-		@gcc $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME)
+		@gcc $(CFLAGS) $(SRC) $(LIBFT) -o $(PUSH_SWAP)
 		@$(MAKE) clean -C ./libft
 		@rm -f $(OBJ)
+
+$(CHECKER):		$(OBJ)
+		@gcc $(CFLAGS) $(SRC1) $(LIBFT) -o $(CHECKER)
+		@rm -f $(OBJ1)
 
 clean:
 		@$(MAKE) clean -C ./libft
@@ -20,7 +29,8 @@ clean:
 
 fclean:	clean
 			@$(MAKE) fclean -C ./libft
-			@rm -f $(NAME)
+			@rm -f $(PUSH_SWAP)
+			@rm -f $(CHECKER)
 
 re:		fclean all
 

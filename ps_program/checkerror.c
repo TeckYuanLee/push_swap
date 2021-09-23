@@ -27,7 +27,7 @@ void	checkargc(int argc)
 
 void	checkstring(t_stack stack)
 {
-	ft_putstr("Error : string detected.\n");
+	ft_putstr("Error : non-integer detected.\n");
 	freestack(stack);
 	exit(0);
 }
@@ -36,8 +36,8 @@ void	checkduplicates(t_stack stack, long a, long j)
 {
 	long	i;
 
-	i = 0;
-	while (i < j)
+	i = -1;
+	while (++i < j)
 	{
 		if (stack.A[i] == a)
 		{
@@ -45,6 +45,5 @@ void	checkduplicates(t_stack stack, long a, long j)
 			freestack(stack);
 			exit(0);
 		}
-		i++;
 	}
 }

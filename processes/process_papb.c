@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../ps_program/push_swap.h"
 
 void	process_pa(long *a, long *b)
 {
@@ -22,7 +22,6 @@ void	process_pa(long *a, long *b)
 		i--;
 	}
 	a[0] = temp;
-	ft_putstr("pa\n");
 }
 
 void	process_pb(long *a, long *b)
@@ -47,5 +46,4 @@ void	process_pb(long *a, long *b)
 		i--;
 	}
 	b[0] = temp;
-	ft_putstr("pb\n");
 }

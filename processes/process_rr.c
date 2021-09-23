@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../ps_program/push_swap.h"
 
 void	process_ra(long *a)
 {
@@ -15,7 +15,6 @@ void	process_ra(long *a)
 		i++;
 	}
 	a[n - 1] = temp;
-	ft_putstr("ra\n");
 }
 
 void	process_rb(long *b)
@@ -33,7 +32,6 @@ void	process_rb(long *b)
 		i++;
 	}
 	b[n - 1] = temp;
-	ft_putstr("rb\n");
 }
 
 void	process_rr(long *a, long *b)

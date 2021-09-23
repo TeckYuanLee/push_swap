@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../push_swap.h"
+#include "../ps_program/push_swap.h"
 
 long	ft_atol(const char *str, t_stack stack)
 {
