@@ -13,13 +13,17 @@ void	process_rra(long *a);
 void	process_rrb(long *b);
 void	process_pa(long *a, long *b);
 void	process_pb(long *a, long *b);
+void	process_rr(long *a, long *b);
+void	process_rrr(long *a, long *b);
 
 char	*read_instr(void);
 void	checker(t_stack stack);
-int		exe_instr(long *A, long *B, char *str);
+int		exe_instr(t_stack stack, char *str);
 int		checker_list(char *str, long *A, long *B);
 
 void	freestack(t_stack stack);
+
+void	checkinstr(t_stack stack);
 void	checkintrange(t_stack stack, long i);
 void	checkargc(int argc);
 void	checkstring(t_stack stack);

@@ -37,6 +37,9 @@ long	iterateMedian(long *A, int len);
 
 void	printAB(long *A, long *B);
 
+int		parse_len(char **argv, int argc);
+void	parse_argv(char **argv, t_stack stack);
+
 int		quick_sort_a(t_stack stack, int len);
 int		quick_sort_b(t_stack stack, int len);
 

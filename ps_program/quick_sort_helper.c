@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 int	checksorted(long *A, int len, int sort_a)
 {
@@ -12,10 +11,6 @@ int	checksorted(long *A, int len, int sort_a)
 			return (0);
 		i++;
 	}
-	printf("i %d len %d\n", i, len);
-	int j = 0;
-	while (A[j] != 2147483648)
-		printf("-> %ld\n", A[j++]);
 	return (1);
 }
 

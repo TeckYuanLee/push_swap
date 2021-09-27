@@ -1,9 +1,10 @@
 #include "push_swap.h"
 
-void	freestack(t_stack stack)
+void	checkinstr(t_stack stack)
 {
-	free(stack.A);
-	free(stack.B);
+	ft_putstr("Error : invalid instruction.\n");
+	freestack(stack);
+	exit(0);
 }
 
 void	checkintrange(t_stack stack, long i)

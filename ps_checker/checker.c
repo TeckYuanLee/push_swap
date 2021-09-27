@@ -18,19 +18,21 @@ int	checker_list(char *str, long *A, long *B)
 		process_pa(A, B);
 	else if (!(ft_strcmp(str, "pb")))
 		process_pb(A, B);
+	else if (!(ft_strcmp(str, "rr")))
+		process_rr(A, B);
+	else if (!(ft_strcmp(str, "rrr")))
+		process_rrr(A, B);
 	else
 		return (0);
 	return (1);
 }
 
-int	exe_instr(long *A, long *B, char *str)
+int	exe_instr(t_stack stack, char *str)
 {
 	int		i;
 	int		j;
-	int		wrong_instr;
 	char	*tmp;
 
-	wrong_instr = 0;
 	i = -1;
 	while (str[++i])
 	{
@@ -40,13 +42,14 @@ int	exe_instr(long *A, long *B, char *str)
 		if (str[i + 2] != '\n')
 			j++;
 		tmp = ft_substr(str, i, j);
-		if (!checker_list(tmp, A, B))
-			wrong_instr++;
+		if (!checker_list(tmp, stack.A, stack.B))
+		{
+			free(tmp);
+			checkinstr(stack);
+		}
 		free(tmp);
 		i += j;
 	}
-	if (wrong_instr)
-		return (0);
 	return (1);
 }
 
@@ -116,10 +119,8 @@ int	main(int argc, char **argv)
 		checkduplicates(stack, stack.A[i - 1], i - 1);
 	}
 	instr = read_instr();
-	if (exe_instr(stack.A, stack.B, instr))
-		checker(stack);
-	else
-		ft_putstr("KO\n");
+	exe_instr(stack, instr);
+	checker(stack);
 	freestack(stack);
 	free(instr);
 }

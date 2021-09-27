@@ -9,9 +9,9 @@ PROCESSES = processes/process_papb.c\
 			processes/process_rrr.c\
 			processes/process_ss.c\
 
-SRC = ps_program/checkerror.c ps_program/main.c ps_program/quick_sort_helper.c ps_program/threerandnum.c printAB.c\
+SRC = ps_program/checkerror.c ps_program/main.c ps_program/quick_sort_helper.c ps_program/threerandnum.c ps_program/parser.c printAB.c\
 
-SRC1 = ps_checker/checker.c ps_program/checkerror.c\
+SRC1 = ps_checker/checker.c ps_program/checkerror.c ps_program/parser.c\
 
 OBJ = $(SRC:c=o)
 OBJ1 = $(SRC1:c=o)

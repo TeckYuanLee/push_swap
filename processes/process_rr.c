@@ -38,5 +38,4 @@ void	process_rr(long *a, long *b)
 {
 	process_ra(a);
 	process_rb(b);
-	ft_putstr("rr\n");
 }

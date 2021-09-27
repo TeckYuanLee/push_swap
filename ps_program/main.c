@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 void	instr_list(char *str, long *A, long *B)
 {
@@ -85,20 +84,24 @@ int	main(int argc, char *argv[])
 {
 	t_stack	stack;
 	long	i;
+	int		len;
 
-	//checkargc(argc);
-	printf("argc %d\n", argc);
-	i = 0;
-	stack.A = ft_calloc(argc, sizeof(long));
-	stack.B = ft_calloc(argc, sizeof(long));
-	while (argv[++i])
+	checkargc(argc);
+	len = parse_len(argv, argc);
+	stack.A = ft_calloc(len, sizeof(long));
+	stack.B = ft_calloc(len, sizeof(long));
+	if (len != argc)
+		parse_argv(argv, stack);
+	else
 	{
-		printf("argv %s\n", argv[i]);
-		stack.A[i - 1] = ft_atol(argv[i], stack);
-		checkintrange(stack, i);
-		checkduplicates(stack, stack.A[i - 1], i - 1);
+		i = 0;
+		while (argv[++i])
+		{
+			stack.A[i - 1] = ft_atol(argv[i], stack);
+			checkintrange(stack, i);
+			checkduplicates(stack, stack.A[i - 1], i - 1);
+		}
 	}
 	quick_sort_a(stack, (int)ft_intlen(stack.A));
-	printAB(stack.A, stack.B);
 	freestack(stack);
 }
