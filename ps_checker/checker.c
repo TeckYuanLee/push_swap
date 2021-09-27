@@ -27,8 +27,10 @@ int	exe_instr(long *A, long *B, char *str)
 {
 	int		i;
 	int		j;
+	int		wrong_instr;
 	char	*tmp;
 
+	wrong_instr = 0;
 	i = -1;
 	while (str[++i])
 	{
@@ -38,10 +40,13 @@ int	exe_instr(long *A, long *B, char *str)
 		if (str[i + 2] != '\n')
 			j++;
 		tmp = ft_substr(str, i, j);
-		checker_list(tmp, A, B);
+		if (!checker_list(tmp, A, B))
+			wrong_instr++;
 		free(tmp);
 		i += j;
 	}
+	if (wrong_instr)
+		return (0);
 	return (1);
 }
 
@@ -49,7 +54,7 @@ void	checker(t_stack stack)
 {
 	int		i;
 
-	if ((int)ft_intlen(stack.B))
+	if ((int)ft_intlen(stack.B) || (int)ft_intlen(stack.A) == 0)
 	{
 		ft_putstr("KO\n");
 		return ;
@@ -111,8 +116,10 @@ int	main(int argc, char **argv)
 		checkduplicates(stack, stack.A[i - 1], i - 1);
 	}
 	instr = read_instr();
-	exe_instr(stack.A, stack.B, instr);
-	checker(stack);
+	if (exe_instr(stack.A, stack.B, instr))
+		checker(stack);
+	else
+		ft_putstr("KO\n");
 	freestack(stack);
 	free(instr);
 }

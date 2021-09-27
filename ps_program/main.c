@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <stdio.h>
 
 void	instr_list(char *str, long *A, long *B)
 {
@@ -33,7 +34,7 @@ int	quick_sort_b(t_stack stack, int len)
 	int		top_half_len;
 	int		rotate;
 
-	if (checksorted(stack.B))
+	if (checksorted(stack.B, len, 0))
 		while (len--)
 			exe_fx("pa", stack.A, stack.B);
 	if (len <= 3)
@@ -60,7 +61,7 @@ int	quick_sort_a(t_stack stack, int len)
 	int		btm_half_len;
 	int		rotate;
 
-	if (checksorted(stack.A))
+	if (checksorted(stack.A, len, 1))
 		return (1);
 	if (len <= 3)
 		return (threerandnum(stack.A, stack.B, len));
@@ -80,21 +81,24 @@ int	quick_sort_a(t_stack stack, int len)
 		&& quick_sort_b(stack, len / 2));
 }
 
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
 	t_stack	stack;
 	long	i;
 
-	checkargc(argc);
+	//checkargc(argc);
+	printf("argc %d\n", argc);
 	i = 0;
 	stack.A = ft_calloc(argc, sizeof(long));
 	stack.B = ft_calloc(argc, sizeof(long));
 	while (argv[++i])
 	{
+		printf("argv %s\n", argv[i]);
 		stack.A[i - 1] = ft_atol(argv[i], stack);
 		checkintrange(stack, i);
 		checkduplicates(stack, stack.A[i - 1], i - 1);
 	}
 	quick_sort_a(stack, (int)ft_intlen(stack.A));
+	printAB(stack.A, stack.B);
 	freestack(stack);
 }

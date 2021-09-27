@@ -19,10 +19,7 @@ void	checkintrange(t_stack stack, long i)
 void	checkargc(int argc)
 {
 	if (argc < 2)
-	{
-		ft_putstr("Error : not enough arguments.\n");
 		exit(0);
-	}
 }
 
 void	checkstring(t_stack stack)

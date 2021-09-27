@@ -31,7 +31,7 @@ int		threerandnum(long *A, long *B, int len);
 void	b_partitionisthree(long *A, long *B, int len);
 int		b_threerandnum(long *A, long *B, int len);
 
-int		checksorted(long *A);
+int		checksorted(long *A, int len, int sort_a);
 long	isMedian(long *A, long a, int len);
 long	iterateMedian(long *A, int len);
 

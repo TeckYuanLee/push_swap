@@ -4,9 +4,14 @@ LIBFT = libft/libft.a
 CFLAGS = -Wall -Werror -Wextra -I.
 ARFLAGS = rcs
 
-SRC = ps_program/*.c printAB.c processes/*.c\
+PROCESSES = processes/process_papb.c\
+			processes/process_rr.c\
+			processes/process_rrr.c\
+			processes/process_ss.c\
 
-SRC1 = ps_checker/checker.c ps_program/checkerror.c processes/*.c\
+SRC = ps_program/checkerror.c ps_program/main.c ps_program/quick_sort_helper.c ps_program/threerandnum.c printAB.c\
+
+SRC1 = ps_checker/checker.c ps_program/checkerror.c\
 
 OBJ = $(SRC:c=o)
 OBJ1 = $(SRC1:c=o)
@@ -15,12 +20,12 @@ all: $(PUSH_SWAP) $(CHECKER)
 
 $(PUSH_SWAP):	$(OBJ) 
 		@$(MAKE) all -C ./libft
-		@gcc $(CFLAGS) $(SRC) $(LIBFT) -o $(PUSH_SWAP)
+		@gcc $(CFLAGS) $(SRC) $(PROCESSES) $(LIBFT) -o $(PUSH_SWAP)
 		@$(MAKE) clean -C ./libft
 		@rm -f $(OBJ)
 
 $(CHECKER):		$(OBJ)
-		@gcc $(CFLAGS) $(SRC1) $(LIBFT) -o $(CHECKER)
+		@gcc $(CFLAGS) $(SRC1) $(PROCESSES) $(LIBFT) -o $(CHECKER)
 		@rm -f $(OBJ1)
 
 clean:
