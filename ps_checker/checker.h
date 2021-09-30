@@ -15,6 +15,7 @@ void	process_pa(long *a, long *b);
 void	process_pb(long *a, long *b);
 void	process_rr(long *a, long *b);
 void	process_rrr(long *a, long *b);
+void	process_ss(long *a, long *b);
 
 char	*read_instr(void);
 void	checker(t_stack stack);

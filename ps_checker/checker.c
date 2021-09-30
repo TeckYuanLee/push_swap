@@ -22,6 +22,8 @@ int	checker_list(char *str, long *A, long *B)
 		process_rr(A, B);
 	else if (!(ft_strcmp(str, "rrr")))
 		process_rrr(A, B);
+	else if (!(ft_strcmp(str, "ss")))
+		process_ss(A, B);
 	else
 		return (0);
 	return (1);

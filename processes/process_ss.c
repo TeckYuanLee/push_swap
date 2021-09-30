@@ -22,5 +22,4 @@ void	process_ss(long *a, long *b)
 {
 	process_sa(a);
 	process_sb(b);
-	ft_putstr("ss\n");
 }
